@@ -5,10 +5,11 @@ import { DATA } from "@/data/data";
 import { ThemeProvider } from "next-themes";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
+import Providers from '@/components/Providers';
 
 const fontSans = FontSans({
-    subsets: ["latin"],
-    variable: "--font-sans",
+  subsets: ["latin"],
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
@@ -45,12 +46,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn('min-h-screen font-sans', fontSans.variable)}>
+      <Providers>
+        <body className={cn('min-h-screen font-sans', fontSans.variable)}>
           <ThemeProvider attribute="class" defaultTheme="system">
             <Navbar/>
             {children}
           </ThemeProvider>
-      </body>
+        </body>
+      </Providers>
     </html>
   );
 }
