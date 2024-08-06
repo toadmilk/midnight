@@ -3,9 +3,20 @@
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 
-export function ModeToggle() {
-  const {theme, setTheme} = useTheme();
+const ModeToggle = () => {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   const isDarkMode = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -38,3 +49,5 @@ export function ModeToggle() {
     </DropdownMenu>
   );
 }
+
+export default ModeToggle;
