@@ -6,6 +6,7 @@ import { ThemeProvider } from "next-themes";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Providers from '@/components/Providers';
+import "react-loading-skeleton/dist/skeleton.css";
 
 const fontSans = FontSans({
   subsets: ["latin"],
