@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <MaxWidthWrapper className="mb-12 mt-28 sm:mt-40 flex flex-col items-center justify-center text-center">
-        <NeonGradientCard className="max-w-sm justify-center bg-transparent mb-8" borderRadius='50'>
+        <NeonGradientCard className="max-w-sm justify-center bg-transparent mb-8" borderRadius={50}>
           <span className="pointer-events-none z-10 h-full bg-gradient-to-br from-[#FF00FE] from-35% to-[#1000FF] bg-clip-text text-center text-2xl font-bold leading-none tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
             {DATA.appName} is now public!
           </span>
