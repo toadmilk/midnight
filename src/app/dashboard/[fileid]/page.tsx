@@ -6,7 +6,7 @@ import ChatWrapper from '@/components/ChatWrapper';
 
 interface PageProps {
   params: {
-    fileid
+    fileid: string;
   };
 }
 

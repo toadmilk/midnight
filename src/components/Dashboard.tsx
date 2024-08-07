@@ -81,7 +81,7 @@ export const Dashboard = () => {
           ))}
         </ul>
       ) : isLoading ? (
-        <Skeleton height={100} class="my-2" count={3}/>
+        <Skeleton height={100} className="my-2" count={3}/>
       ) : (
         <div className="mt-16 flex flex-col items-center gap-2">
           <Ghost className="h-8 w-8 text-neutral-800 dark:text-neutral-200"/>
