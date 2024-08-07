@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 export const Dashboard = () => {
 
-  const { data: files, isLoading } = trpc.getUserFiles.useQuery({});
+  const { data: files, isLoading } = trpc.getUserFiles.useQuery(undefined, {});
 
   return (
     <main className="mx-auto max-w-7xl md:p-10">
