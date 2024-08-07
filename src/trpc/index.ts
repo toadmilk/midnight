@@ -3,6 +3,7 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { TRPCError } from "@trpc/server";
 import { db } from '@/db';
 import { z } from 'zod';
+import { utapi } from '@/app/api/uploadthing/utapi.ts';
 
 export const appRouter = router({
   authCallback: publicProcedure.query(async () => {
@@ -55,7 +56,7 @@ export const appRouter = router({
 
     return file;
   }),
-  deleteFile: privateProcedure.input(z.object({ id: z.string(), })).mutation(async ({ ctx, input }) => {
+  deleteFile: privateProcedure.input(z.object({ id: z.string(), key: z.string(), })).mutation(async ({ ctx, input }) => {
     const { userId } = ctx;
 
     const file = db.file.findFirst({
@@ -67,6 +68,13 @@ export const appRouter = router({
 
     if (!file) {
       throw new TRPCError({ code: 'NOT_FOUND', message: 'File not found' });
+    }
+
+    // Delete on UploadThing
+    try {
+      await utapi.deleteFiles(input.key);
+    } catch (error) {
+      throw new TRPCError({ code: 'INTERNAL_SERVER_ERROR', message: 'Failed to delete file on UploadThing' });
     }
 
     await db.file.delete({
