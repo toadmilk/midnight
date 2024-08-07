@@ -2,6 +2,7 @@ import { privateProcedure, publicProcedure, router } from './trpc';
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { TRPCError } from "@trpc/server";
 import { db } from '@/db';
+import { z } from 'zod';
 
 export const appRouter = router({
   authCallback: publicProcedure.query(async () => {
@@ -29,23 +30,40 @@ export const appRouter = router({
 
     return { success: true };
   }),
-  getUserFiles: privateProcedure.query( ({ ctx }) => {
+  getUserFiles: privateProcedure.query(async ({ ctx }) => {
     const { userId } = ctx;
 
-    return db.file.findMany({
+    return await db.file.findMany({
       where: {
         userId
       }
     });
   }),
-  getUser: privateProcedure.query( ({ ctx }) => {
+  deleteFile: privateProcedure.input(
+    z.object({
+      id: z.string(),
+    })
+  ).mutation(async ({ ctx, input }) => {
     const { userId } = ctx;
 
-    return db.user.findFirst({
+    const file = db.file.findFirst({
       where: {
-        id: userId
+        id: input.id,
+        userId,
       }
     });
+
+    if (!file) {
+      throw new TRPCError({ code: 'NOT_FOUND', message: 'File not found' });
+    }
+
+    await db.file.delete({
+      where: {
+        id: input.id
+      }
+    });
+
+    return file;
   }),
 });
 

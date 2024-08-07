@@ -2,13 +2,31 @@
 
 import UploadButton from '@/components/UploadButton';
 import { trpc } from '@/app/_trpc/client';
-import { Ghost } from 'lucide-react';
+import { Ghost, Loader2, MessageSquare, Plus, Trash } from 'lucide-react';
 import Skeleton from 'react-loading-skeleton';
 import Link from 'next/link';
+import { format } from 'date-fns';
+import { Button } from '@/components/ui/button';
+import { useState } from 'react';
 
 export const Dashboard = () => {
+  const [currentlyDeletingFile, setCurrentlyDeletingFile] = useState<string | null>(null);
+  const utils = trpc.useContext();
 
-  const { data: files, isLoading } = trpc.getUserFiles.useQuery(undefined, {});
+  // TODO: Works but tRPC type inference is not hooking up so errors are displayed
+  const { data: files, isLoading } = trpc.getUserFiles.useQuery(undefined);
+
+  const { mutate: deleteFile } = trpc.deleteFile.useMutation({
+    onSuccess: () => {
+      utils.getUserFiles.invalidate();
+    },
+    onMutate: async ({ id }) => {
+      setCurrentlyDeletingFile(id);
+    },
+    onSettled: () => {
+      setCurrentlyDeletingFile(null);
+    },
+  });
 
   return (
     <main className="mx-auto max-w-7xl md:p-10">
@@ -20,21 +38,50 @@ export const Dashboard = () => {
 
       {files && files?.length !== 0 ? (
         <ul className="mt-8 grid grid-cols-1 gap-6 divide-y divide-gray-200 dark:divide-gray-800 md:grid-cols-2 lg:grid-cols-3">
-          {files.sort((a, b) =>
-            new Date(b.createdAt).getTime() -
-            new Date(a.createdAt().getTime())
+          {files.sort(
+            (a, b) =>
+              new Date(b.createdAt).getTime() -
+              new Date(a.createdAt).getTime()
           ).map((file) => (
             <li key={file.id} className="col-span-1 divide-y divide-gray-200 dark:divide-gray-800 rounded-lg bg-background shadow transition hover:shadow-lg">
               <Link href={`/dashboard/${file.id}`} className="flex flex-col gap-2">
                 <div className="pt-6 px-6 flex w-full items-center justify-between space-x-6">
                   <div className="h-10 w-10 flex-shrink-0 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500"/>
+                  <div className="flex-1 truncate">
+                    <div className="flex items-center space-x-3">
+                      <h3 className="truncate text-lg font-medium text-gray-300 dark:text-gray-700">{file.name}</h3>
+                    </div>
+                  </div>
                 </div>
               </Link>
+
+              <div className="px-6 mt-4 grid grid-cols-3 place-items-center py-2 gap-6 text-xs text-gray-500">
+                <div className="flex items-center gap-2">
+                  <Plus className="h-4 w-4"/>
+                  {format(new Date(file.createdAt), 'MMM yyyy')}
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <MessageSquare className="h-4 w-4"/>
+                  mocked
+                </div>
+
+                <Button
+                  onClick={() => deleteFile({ id: file.id })}
+                  size="sm"
+                  className="w-full"
+                  variant="destructive"
+                >
+                  {currentlyDeletingFile === file.id ? (
+                    <Loader2 className="h-4 w-4 animate-spin"/>
+                  ) : <Trash className="h-4 w-4"/>}
+                </Button>
+              </div>
             </li>
           ))}
         </ul>
       ) : isLoading ? (
-        <Skeleton height={100} class="my-2" count={3} />
+        <Skeleton height={100} class="my-2" count={3}/>
       ) : (
         <div className="mt-16 flex flex-col items-center gap-2">
           <Ghost className="h-8 w-8 text-gray-800 dark:text-gray-200"/>

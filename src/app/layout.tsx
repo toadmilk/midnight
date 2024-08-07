@@ -49,7 +49,7 @@ export default function RootLayout({
     <html lang="en">
       <Providers>
         <body className={cn('min-h-screen font-sans', fontSans.variable)}>
-          <ThemeProvider attribute="class" defaultTheme="system">
+          <ThemeProvider attribute="class" defaultTheme="dark">
             <Navbar/>
             {children}
           </ThemeProvider>
