@@ -6,6 +6,8 @@ import { ThemeProvider } from "next-themes";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Providers from '@/components/Providers';
+import "react-loading-skeleton/dist/skeleton.css";
+import { Toaster } from '@/components/ui/toaster';
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -48,7 +50,8 @@ export default function RootLayout({
     <html lang="en">
       <Providers>
         <body className={cn('min-h-screen font-sans', fontSans.variable)}>
-          <ThemeProvider attribute="class" defaultTheme="system">
+          <ThemeProvider attribute="class" defaultTheme="dark">
+            <Toaster />
             <Navbar/>
             {children}
           </ThemeProvider>

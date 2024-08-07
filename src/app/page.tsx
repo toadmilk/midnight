@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <MaxWidthWrapper className="mb-12 mt-28 sm:mt-40 flex flex-col items-center justify-center text-center">
-        <NeonGradientCard className="max-w-sm justify-center bg-transparent mb-8" borderRadius='50'>
+        <NeonGradientCard className="max-w-sm justify-center bg-transparent mb-8" borderRadius={50}>
           <span className="pointer-events-none z-10 h-full bg-gradient-to-br from-[#FF00FE] from-35% to-[#1000FF] bg-clip-text text-center text-2xl font-bold leading-none tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
             {DATA.appName} is now public!
           </span>
@@ -40,7 +40,7 @@ export default function Home() {
 
         <div className='mx-auto max-w-6xl px-6 lg:px-8'>
           <div className='mt-16 flow-root sm:mt-24'>
-            <div className='-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
+            <div className='-m-2 rounded-xl bg-neutral-900/5 p-2 ring-1 ring-inset ring-neutral-900/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
               {/* TODO: Add preview of the dashboard */}
               <Image
                 src='/dashboard-preview.jpg'
@@ -48,7 +48,7 @@ export default function Home() {
                 width={1364}
                 height={866}
                 quality={100}
-                className='rounded-md bg-background p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray-900/10'
+                className='rounded-md bg-background p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-neutral-900/10'
               />
             </div>
           </div>
@@ -66,10 +66,10 @@ export default function Home() {
       <div className='mx-auto mb-32 mt-32 max-w-5xl sm:mt-56'>
         <div className='mb-12 px-6 lg:px-8'>
           <div className='mx-auto max-w-2xl sm:text-center'>
-            <h2 className='mt-2 font-bold text-4xl sm:text-5xl text-gray-900 dark:text-gray-100'>
+            <h2 className='mt-2 font-bold text-4xl sm:text-5xl text-neutral-900 dark:text-neutral-100'>
               Start chatting in minutes
             </h2>
-            <p className='mt-4 text-lg texy-gray-500'>
+            <p className='mt-4 text-lg texy-neutral-500'>
               Chatting to your PDF files has never been easier than with {DATA.appName}.
             </p>
           </div>
@@ -81,11 +81,11 @@ export default function Home() {
             <div className='flex flex-col space-y-2 border-l-4 border-zinc-300 dark:border-zinc-700 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4'>
               <span className='text-sm font-medium text-indigo-600'>Step 1</span>
               <span className='text-xl font-semibold'>Sign up for an account</span>
-              <span className='mt-2 text-gray-700 dark:text-gray-300'>
+              <span className='mt-2 text-neutral-700 dark:text-neutral-300'>
                 Either starting out with a free plan or choose our{' '}
                 <Link
                   href='/pricing'
-                  className='text-indigo-700 underline underline-offset-2'
+                  className='text-blue-600 underline underline-offset-2'
                 >
                   pro plan
                 </Link>.
@@ -96,7 +96,7 @@ export default function Home() {
             <div className='flex flex-col space-y-2 border-l-4 border-zinc-300 dark:border-zinc-700 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4'>
               <span className='text-sm font-medium text-indigo-600'>Step 2</span>
               <span className='text-xl font-semibold'>Upload your PDF file</span>
-              <span className='mt-2 text-gray-700 dark:text-gray-300'>
+              <span className='mt-2 text-neutral-700 dark:text-neutral-300'>
                 We&apos;ll process your file and make it ready for you to chat with.
               </span>
             </div>
@@ -105,7 +105,7 @@ export default function Home() {
             <div className='flex flex-col space-y-2 border-l-4 border-zinc-300 dark:border-zinc-700 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4'>
               <span className='text-sm font-medium text-indigo-600'>Step 3</span>
               <span className='text-xl font-semibold'>Start asking questions</span>
-              <span className='mt-2 text-gray-700 dark:text-gray-300'>
+              <span className='mt-2 text-neutral-700 dark:text-neutral-300'>
                 It&apos;s that simple. Try out {DATA.appName} today - it really takes less than a minute.
               </span>
             </div>
@@ -114,7 +114,7 @@ export default function Home() {
 
         <div className='mx-auto max-w-6xl px-6 lg:px-8'>
           <div className='mt-16 flow-root sm:mt-24'>
-            <div className='-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
+            <div className='-m-2 rounded-xl bg-neutral-900/5 p-2 ring-1 ring-inset ring-neutral-900/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
               {/* TODO: Add preview of the file upload */}
               <Image
                 src='/file-upload-preview.jpg'
@@ -122,7 +122,7 @@ export default function Home() {
                 width={1419}
                 height={732}
                 quality={100}
-                className='rounded-md bg-background p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray-900/10'
+                className='rounded-md bg-background p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-neutral-900/10'
               />
             </div>
           </div>
