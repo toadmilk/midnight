@@ -3,7 +3,7 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { TRPCError } from "@trpc/server";
 import { db } from '@/db';
 import { z } from 'zod';
-import { utapi } from '@/app/api/uploadthing/utapi.ts';
+import { utapi } from '@/app/api/uploadthing/utapi';
 
 export const appRouter = router({
   authCallback: publicProcedure.query(async () => {
