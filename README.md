@@ -2,20 +2,37 @@
 
 # Midnight
 
-Midnight lets you chat with your documents, fine-tune the final script and effortlessly create short-form content. Simply upload your file and start creating right away.
+Midnight lets you chat with your documents, fine-tune the final script and effortlessly create short-form content.
+Simply upload your file and start creating right away.
+
 ## Technologies used
 
-- React: A JavaScript library for building user interfaces.
-- Next.js: Next.js is a React framework that enables server-side rendering and provides an excellent developer experience.
-- Kinde: Kinde is an authentication library that provides a simple and secure way to authenticate users.
-- Prisma: Prisma is an ORM (Object-Relational Mapping) tool that simplifies database access and management.
-- Tailwind CSS: Tailwind CSS is a utility-first CSS framework that allows you to rapidly build custom user interfaces.
-- tRPC: tRPC is a TypeScript-first framework for building efficient and type-safe APIs.
+<div style="display: flex; align-items: center; gap: 10px;">
+  <a href="https://reactjs.org/" target="_blank" rel="noreferrer" style="display: flex; align-items: center;">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> 
+  </a>
+  <a href="https://nextjs.org/" target="_blank" rel="noreferrer" style="display: flex; align-items: center;">
+  <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="40" height="40"/>
+  </a>
+  <a href="https://kinde.com/" target="_blank" rel="noreferrer" style="display: flex; align-items: center;">
+    <img src="https://pbs.twimg.com/profile_images/1577508370189520896/zAvyayM9_400x400.jpg" alt="kinde" width="40" height="40"/> 
+  </a>
+  <a href="https://www.prisma.io/" target="_blank" rel="noreferrer" style="display: flex; align-items: center;">
+    <img src="https://avatars.githubusercontent.com/u/17219288?s=200&v=4" alt="prisma" width="40" height="40"/> 
+  </a>
+  <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer" style="display: flex; align-items: center;">
+    <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/> 
+  </a>
+  <a href="https://trpc.io/" target="_blank" rel="noreferrer" style="display: flex; align-items: center;">
+    <img src="https://avatars.githubusercontent.com/u/78011399?s=200&v=4" alt="trpc" width="40" height="40"/>
+  </a>
+</div>
 
 ## Deployment
 
 This project is deployed on Vercel and can be found at [midnightai.vercel.app](https://midnightai.vercel.app/).
 
-To sign into Midnight, just use an email and password then verify your email. Further sign-in options will be added in the future.
+To sign into Midnight, just use an email and password then verify your email. Further sign-in options will be added in
+the future.
 
 ## Media
