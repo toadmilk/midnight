@@ -5,6 +5,7 @@ import { DATA } from "@/data/data";
 import { buttonVariants } from "@/components/ui/button";
 import { LoginLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 
 const Navbar = () => {
@@ -12,8 +13,9 @@ const Navbar = () => {
     <nav className='sticky h-14 inset-x-0 top-0 z-30 w-full border-b border-grey-200 dark:border-grey-800 bg-white/75 dark:bg-black/75 backdrop-blur-lg transition-all'>
       <MaxWidthWrapper>
         <div className='flex h-14 items-center justify-between border-b border-grey-200 dark:border-grey-800'>
-          <Link href='/' className='flex z-40 font-semibold'>
-            {DATA.appName.toLowerCase()}.
+          <Link href='/' className='flex z-40 font-semibold items-center'>
+            <Image src='/logo.svg' alt='logo' className="pr-2" width={28} height={28}/>
+            {DATA.appName.toLowerCase()}
           </Link>
 
           {/* TODO: add mobile navbar */}
