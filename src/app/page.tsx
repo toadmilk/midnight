@@ -20,7 +20,7 @@ export default function Home() {
           className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Shorts</span> in seconds.
         </h1>
         <p className="mt-5 max-w-prose text-grey-300 dark:text-grey-700 sm:text-lg">
-          {DATA.appName} lets you chat with your documents, fine-tune the final script and effortlessly create short-form content. Simply upload your file and start asking creating right away.
+          {DATA.appName} lets you chat with your documents, fine-tune the final script and effortlessly create short-form content. Simply upload your file and start creating right away.
         </p>
 
         <Link className={buttonVariants({

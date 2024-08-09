@@ -1,7 +1,8 @@
-# Midnight 
+<img src="public/logo.svg" alt="Repository Logo" width="200" height="200">
 
-Placeholder
+# Midnight
 
+Midnight lets you chat with your documents, fine-tune the final script and effortlessly create short-form content. Simply upload your file and start creating right away.
 ## Technologies used
 
 - React: A JavaScript library for building user interfaces.
