@@ -91,10 +91,10 @@ const ChatWrapper = ({ fileId }: ChatWrapperProps) => {
       <ChatContextProvider fileId={fileId}>
         <div className="relative min-h-full bg-background flex divide-y divide-neutral-200 dark:divide-neutral-800 justify-between gap-2">
           <div className="flex-1 justify-between flex flex-col mb-28">
-            <Messages/>
+            <Messages fileId={fileId} />
           </div>
 
-          <ChatInput isDisabled={!isLoading}/>
+          <ChatInput isDisabled={isLoading}/>
         </div>
       </ChatContextProvider>
     );
