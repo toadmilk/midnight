@@ -15,7 +15,7 @@ const Navbar = () => {
         <div className='flex h-14 items-center justify-between border-b border-grey-200 dark:border-grey-800'>
           <Link href='/' className='flex z-40 font-semibold items-center'>
             <Image src='/logo.svg' alt='logo' className="pr-2" width={28} height={28}/>
-            {DATA.appName.toLowerCase()}
+            {DATA.appName}
           </Link>
 
           {/* TODO: add mobile navbar */}
