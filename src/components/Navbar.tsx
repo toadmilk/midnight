@@ -42,7 +42,7 @@ const Navbar = () => {
                 className={buttonVariants({
                   size: 'sm',
                 })}>
-                Get started <ArrowRight className='ml-1.5 h-5 w-5'/>
+                Register <ArrowRight className='ml-1.5 h-5 w-5'/>
               </RegisterLink>
             </>
             <ModeToggle/>

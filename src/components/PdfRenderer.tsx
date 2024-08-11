@@ -119,7 +119,7 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
             <DropdownMenuTrigger asChild>
               <Button
                 className="gap-1.5"
-                label="zoom"
+                aria-label="zoom"
                 variant="ghost"
               >
                 <Search className="h-4 w-4"/>

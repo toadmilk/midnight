@@ -22,7 +22,7 @@ const Message = ({message, isNextMessageSamePerson}: MessageProps) => {
         {message.isUserMessage ? (
           <Icons.user className="h-3/4 w-3/4 fill-neutral-200 text-neutral-200"/>
         ) : (
-          <Icons.logo className="h-3/4 w-3/4"/>
+          <Icons.logo/>
         )}
       </div>
 

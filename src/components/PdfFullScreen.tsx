@@ -21,14 +21,12 @@ const PdfFullScreen = ({ url }: PdfFullScreenProps) => {
 
   return (
     <Dialog
-      isOpen={isOpen}
-      onDismiss={() => setIsOpen(false)}
+      open={isOpen}
       onOpenChange={(v) => {
         if (!v) {
           setIsOpen(v);
         }
       }}
-      className="fixed inset-0 z-50"
     >
       <DialogTrigger
         onClick={() => setIsOpen(true)}

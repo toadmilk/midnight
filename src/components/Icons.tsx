@@ -1,9 +1,10 @@
-import { LucideProps, User } from 'lucide-react';
+import { User } from 'lucide-react';
+import Image from 'next/image';
+import { ReactNode } from 'react';
 
 export const Icons = {
   user: User,
-  // For logo user /logo.svg
-  logo: (props: LucideProps) => {
-    return <img src="/logo.svg" alt="Logo" {...props} />;
+  logo: (): ReactNode => {
+    return <Image src="/logo.svg" alt="Logo" className="h-3/4 w-3/4" />;
   }
 }

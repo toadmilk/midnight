@@ -1,6 +1,5 @@
 import { trpc } from '@/app/_trpc/client';
 import { INFINITE_QUERY_LIMIT } from '@/config/infinite-query';
-import { getNextPageParam } from '@tanstack/query-core/build/lib/infiniteQueryBehavior';
 import { Loader2, MessageSquare } from 'lucide-react';
 import Skeleton from 'react-loading-skeleton';
 import Message from '@/components/chat/Message';
@@ -56,7 +55,7 @@ const Messages = ({fileId}: MessagesProps ) => {
         </div>
       ) : (
         <div>
-          <MessageSquare classname="h-8 w-8 text-blue-500"/>
+          <MessageSquare className="h-8 w-8 text-blue-500"/>
           <h3 className="font-semibold text-xl">You&apos;re all set!</h3>
           <p className="text-neutral-500 text-sm">
             Ask your first question to get started.
