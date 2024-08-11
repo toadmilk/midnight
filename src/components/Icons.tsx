@@ -5,6 +5,6 @@ import { ReactNode } from 'react';
 export const Icons = {
   user: User,
   logo: (): ReactNode => {
-    return <Image src="/logo.svg" alt="Logo" className="h-3/4 w-3/4" />;
+    return <Image src="/logo.svg" alt="Logo" width={24} height={24} />;
   }
 }
