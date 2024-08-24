@@ -16,7 +16,7 @@ const Message = forwardRef<HTMLDivElement, MessageProps>(({message, isNextMessag
       "justify-end": message.isUserMessage
     })}>
       <div className={cn("relative flex h-6 w-6 aspect-square items-center justify-center", {
-        "order-2 bg-indigo-600 rounded-sm": message.isUserMessage,
+        "order-2 bg-indigo-600 rounded-full": message.isUserMessage,
         "order-1 bg-background rounded-full": !message.isUserMessage,
         invisible: isNextMessageSamePerson
       })}>
