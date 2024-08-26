@@ -191,7 +191,7 @@ const Page = async () => {
                   <div className="border-t border-neutral-200 dark:border-neutral-800"/>
                   <div className="p-5">
                     {plan === "Free" ? (
-                      <Link href={user ? "/dashboard" : "/sign-in"} className={buttonVariants({ className: "w-full" })}>
+                      <Link href={user ? "/dashboard" : "/sign-in"} className={buttonVariants({ className: "w-full", variant: 'secondary' })}>
                         {user ? 'Upgrade now' : 'Sign up'}
                         <ArrowRight className="h-5 w-5 ml-1.5"/>
                       </Link>
