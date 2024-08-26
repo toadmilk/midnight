@@ -108,6 +108,7 @@ export const ChatContextProvider = ({ fileId, children }: ChatContextProviderPro
           description: 'Please refresh this page and try again',
           variant: 'destructive',
         });
+        return;
       }
 
       const reader = stream.getReader();
