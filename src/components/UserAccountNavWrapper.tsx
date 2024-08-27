@@ -3,14 +3,20 @@
 import UserAccountNav from './UserAccountNav';
 import { getUserSubscriptionPlan } from '@/lib/stripe';
 
-export default async function UserAccountNavWrapper() {
+interface UserAccountNavWrapperProps {
+  name: string;
+  email: string | undefined;
+  imageUrl: string;
+}
+
+export default async function UserAccountNavWrapper({ name, email, imageUrl }: UserAccountNavWrapperProps) {
   const subscriptionPlan = await getUserSubscriptionPlan();
 
   return (
     <UserAccountNav
-      name="User Name"
-      email="user@example.com"
-      imageUrl="/path-to-image"
+      name={name}
+      email={email}
+      imageUrl={imageUrl}
       subscriptionPlan={subscriptionPlan}
     />
   );
