@@ -13,7 +13,6 @@ export const Dashboard = () => {
   const [currentlyDeletingFile, setCurrentlyDeletingFile] = useState<string | null>(null);
   const utils = trpc.useContext();
 
-  // TODO: Works but tRPC type inference is not hooking up so errors are displayed
   const { data: files, isLoading } = trpc.getUserFiles.useQuery(undefined);
 
   const { mutate: deleteFile } = trpc.deleteFile.useMutation({
