@@ -7,7 +7,6 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 import UserAccountNav from '@/components/UserAccountNav';
-import UserAccountNavWrapper from '@/components/UserAccountNavWrapper';
 
 const Navbar = async () => {
 
@@ -62,7 +61,7 @@ const Navbar = async () => {
                   Dashboard
                 </Link>
 
-                <UserAccountNavWrapper
+                <UserAccountNav
                   name={
                     !user.given_name || !user.family_name
                       ? 'Your Account'
