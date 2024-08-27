@@ -1,6 +1,6 @@
 export const DATA = {
     appName: 'Midnight',
-    description: 'Chat with your documents in seconds.',
+    description: 'Chat with your documents and create shorts in minutes.',
     url: 'https://midnightai.vercel.app',
-    uploadThingUrl: 'https://uploadthing-prod.s3.us-west-2.amazonaws.com/',
+    uploadThingUrl: 'https://utfs.io/f/',
 };
