@@ -5,7 +5,6 @@ import { ArrowRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
 import { NeonGradientCard } from "@/components/magicui/neon-gradient-card";
-import { LoginLink } from '@kinde-oss/kinde-auth-nextjs/components';
 
 export default function Home() {
   return (
@@ -24,13 +23,13 @@ export default function Home() {
           {DATA.appName} lets you chat with your documents, fine-tune the final script and effortlessly create short-form content. Simply upload your file and start creating right away.
         </p>
 
-        <LoginLink className={buttonVariants({
+        <Link className={buttonVariants({
           size: 'lg',
           className: 'mt-5',
-        })}>
+        })} href="/dashboard" target="_blank">
           Get started
           <ArrowRight className="w-5 h-5 ml-2"/>
-        </LoginLink>
+        </Link>
       </MaxWidthWrapper>
       <div className="relative isolate">
         <div aria-hidden="true" className='pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'>
@@ -43,12 +42,11 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="mt-16 flow-root sm:mt-24">
             <div className="-m-2 rounded-xl bg-neutral-900/5 p-2 ring-1 ring-inset ring-neutral-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-              {/* TODO: Add preview of the dashboard */}
               <Image
-                src="/dashboard-preview.jpg"
+                src="/dashboard-preview.png"
                 alt="product preview"
-                width={1364}
-                height={866}
+                width={1920}
+                height={1080}
                 quality={100}
                 className="rounded-md bg-background p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-neutral-900/10"
               />
@@ -117,12 +115,11 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="mt-16 flow-root sm:mt-24">
             <div className="-m-2 rounded-xl bg-neutral-900/5 p-2 ring-1 ring-inset ring-neutral-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-              {/* TODO: Add preview of the file upload */}
               <Image
-                src="/file-upload-preview.jpg"
+                src="/file-upload-preview.png"
                 alt="uploading preview"
-                width={1419}
-                height={732}
+                width={1920}
+                height={1080}
                 quality={100}
                 className="rounded-md bg-background p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-neutral-900/10"
               />
