@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
 import { NeonGradientCard } from "@/components/magicui/neon-gradient-card";
+import { LoginLink } from '@kinde-oss/kinde-auth-nextjs/components';
 
 export default function Home() {
   return (
@@ -23,13 +24,13 @@ export default function Home() {
           {DATA.appName} lets you chat with your documents, fine-tune the final script and effortlessly create short-form content. Simply upload your file and start creating right away.
         </p>
 
-        <Link className={buttonVariants({
+        <LoginLink className={buttonVariants({
           size: 'lg',
           className: 'mt-5',
-        })} href="/dashboard" target="_blank">
+        })}>
           Get started
           <ArrowRight className="w-5 h-5 ml-2"/>
-        </Link>
+        </LoginLink>
       </MaxWidthWrapper>
       <div className="relative isolate">
         <div aria-hidden="true" className='pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'>
