@@ -86,7 +86,7 @@ export default function Home() {
                 Either starting out with a free plan or choose our{' '}
                 <Link
                   href="/pricing"
-                  className="text-blue-600 underline underline-offset-2"
+                  className="text-indigo-600 underline underline-offset-2"
                 >
                   pro plan
                 </Link>.
