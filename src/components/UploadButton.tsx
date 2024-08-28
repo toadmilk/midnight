@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
@@ -11,14 +11,16 @@ import { useToast } from '@/components/ui/use-toast';
 import { trpc } from '@/app/_trpc/client';
 import { useRouter } from 'next/navigation';
 
-const UploadDropzone = () => {
+const UploadDropzone = ({ isSubscribed }: { isSubscribed: boolean }) => {
   const router = useRouter();
   const [isUploading, setIsUploading] = useState<boolean>(false);
   const [uploadProgress, setUploadProgress] = useState<number>(0);
 
   const { toast } = useToast();
 
-  const { startUpload } = useUploadThing("pdfUploader");
+  const { startUpload } = useUploadThing(
+    isSubscribed ? 'proPlanUploader' : 'freePlanUploader',
+  );
 
   const { mutate: startPolling } = trpc.getFile.useMutation({
     onSuccess: (file) => {
@@ -83,18 +85,18 @@ const UploadDropzone = () => {
               className="flex flex-col items-center justify-center w-full h-full rounded-lg cursor-pointer bg-neutral-100 dark:bg-background hover:bg-neutral-200 hover:dark:bg-neutral-900"
             >
               <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                <Cloud className="h-6 w-6 text-neutral-500 mb-2"/>
+                <Cloud className="h-6 w-6 text-neutral-500 mb-2" />
                 <p className="mb-2 text-sm text-neutral-700">
                   <span className="font-semibold">Click to upload </span>{' '}
                   or drag and drop
                 </p>
-                <p className="text-xs text-neutral-500">PDF (up to 4MB)</p>
+                <p className="text-xs text-neutral-500">PDF (up to {isSubscribed ? "16" : "4"}MB)</p>
               </div>
 
               {acceptedFiles && acceptedFiles[0] ? (
                 <div className="max-w-xs bg-background flex items-center rounded-md overflow-hidden outline outline-[1px] outline-neutral-200 dark:outline-neutral-800 divide-x divide-neutral-200 dark:divide-neutral-800">
                   <div className="px-3 py-2 h-full grid place-items-center">
-                    <File className="h-4 w-4 text-indigo-500"/>
+                    <File className="h-4 w-4 text-indigo-500" />
                   </div>
                   <div className="px-3 py-2 h-full text-sm truncate">
                     {acceptedFiles[0].name}
@@ -132,7 +134,7 @@ const UploadDropzone = () => {
   );
 };
 
-const UploadButton = () => {
+const UploadButton = ({ isSubscribed }: { isSubscribed: boolean }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <div>
@@ -145,7 +147,7 @@ const UploadButton = () => {
           <Button>Upload PDF</Button>
         </DialogTrigger>
         <DialogContent>
-          <UploadDropzone/>
+          <UploadDropzone isSubscribed={isSubscribed} />
         </DialogContent>
       </Dialog>
     </div>
