@@ -51,3 +51,7 @@ To sign into Midnight, just use an email and password then verify your email. Fu
 the future.
 
 ## Media
+
+![Landing Page Preview](public/landing-page-preview.png)
+![Dashboard Preview](public/dashboard-preview.png)
+![File Upload Preview](public/file-upload-preview.png)
