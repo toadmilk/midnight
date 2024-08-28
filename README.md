@@ -1,4 +1,4 @@
-<img src="public/logo.svg" alt="Repository Logo" width="200" height="200">
+![Thumbnail](public/thumbnail.png)
 
 # Midnight
 
