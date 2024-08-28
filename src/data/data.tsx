@@ -42,7 +42,7 @@ export function constructMetaData({
     twitter: {
       title,
       description,
-      cardType: "summary_large_image",
+      card: "summary_large_image",
       images: [image],
     },
     icons,

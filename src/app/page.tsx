@@ -19,7 +19,7 @@ export default function Home() {
           Transform your <span className='bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent'>Scripts</span> into <span className='bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent'>Shorts</span> in minutes.
         </h1>
         <p className="mt-5 max-w-prose text-grey-300 dark:text-grey-700 sm:text-lg">
-          Chat with and edit your scripts, fine-tune the result or make manual edits, and effortlessly create short-form content. Just upload your script and start creating instantly.
+          Chat with and edit your scripts, fine-tune the result or make manual edits, and effortlessly create short-form content.
         </p>
 
         <Link className={buttonVariants({
