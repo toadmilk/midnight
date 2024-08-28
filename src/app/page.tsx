@@ -5,7 +5,6 @@ import { ArrowRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
 import { NeonGradientCard } from "@/components/magicui/neon-gradient-card";
-import { LoginLink } from '@kinde-oss/kinde-auth-nextjs/components';
 
 export default function Home() {
   return (
@@ -17,23 +16,22 @@ export default function Home() {
           </span>
         </NeonGradientCard>
         <h1 className="max-width-4xl text-5xl font-bold md:text-6xl lg:text-7xl">
-          Chat with your <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Documents</span> and create <span
-          className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Shorts</span> in minutes.
+          Transform your <span className='bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent'>Scripts</span> into <span className='bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent'>Shorts</span> in minutes.
         </h1>
         <p className="mt-5 max-w-prose text-grey-300 dark:text-grey-700 sm:text-lg">
-          {DATA.appName} lets you chat with your documents, fine-tune the final script and effortlessly create short-form content. Simply upload your file and start creating right away.
+          Chat with and edit your scripts, fine-tune the result or make manual edits, and effortlessly create short-form content. Just upload your script and start creating instantly.
         </p>
 
-        <LoginLink className={buttonVariants({
+        <Link className={buttonVariants({
           size: 'lg',
           className: 'mt-5',
-        })}>
+        })} href="/dashboard" target="_blank">
           Get started
-          <ArrowRight className="w-5 h-5 ml-2"/>
-        </LoginLink>
+          <ArrowRight className="w-5 h-5 ml-2" />
+        </Link>
       </MaxWidthWrapper>
       <div className="relative isolate">
-        <div aria-hidden="true" className='pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'>
+        <div aria-hidden="true" className='pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-2xl sm:-top-80'>
           <div style={{
             clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
           }} className='relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#FF00FE] to-[#1000FF] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]'
@@ -43,24 +41,16 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="mt-16 flow-root sm:mt-24">
             <div className="-m-2 rounded-xl bg-neutral-900/5 p-2 ring-1 ring-inset ring-neutral-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-              {/* TODO: Add preview of the dashboard */}
               <Image
-                src="/dashboard-preview.jpg"
+                src="/dashboard-preview.png"
                 alt="product preview"
-                width={1364}
-                height={866}
+                width={1920}
+                height={1080}
                 quality={100}
                 className="rounded-md bg-background p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-neutral-900/10"
               />
             </div>
           </div>
-        </div>
-
-        <div aria-hidden="true" className='pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'>
-          <div style={{
-            clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-          }} className='relative left-[calc(50%-13rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#FF00FE] to-[#1000FF] opacity-30 sm:left-[calc(50%-36rem)] sm:w-[72.1875rem]'
-          />
         </div>
       </div>
 
@@ -113,16 +103,16 @@ export default function Home() {
             </div>
           </li>
         </ol>
-
+      </div>
+      <div className="relative isolate">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <div className="mt-16 flow-root sm:mt-24">
+          <div className="my-16 flow-root sm:my-24">
             <div className="-m-2 rounded-xl bg-neutral-900/5 p-2 ring-1 ring-inset ring-neutral-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-              {/* TODO: Add preview of the file upload */}
               <Image
-                src="/file-upload-preview.jpg"
-                alt="uploading preview"
-                width={1419}
-                height={732}
+                src="/file-upload-preview.png"
+                alt="product preview"
+                width={1920}
+                height={1080}
                 quality={100}
                 className="rounded-md bg-background p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-neutral-900/10"
               />
