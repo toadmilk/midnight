@@ -1,15 +1,17 @@
 'use client';
 
-import { ArrowRight, Menu } from 'lucide-react';
+import { ArrowRight, CreditCard, Gem, LayoutDashboard, Menu } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { getUserSubscriptionPlan } from '@/lib/stripe';
 
 interface MobileNavProps {
   isAuth: boolean;
+  subscriptionPlan: Awaited<ReturnType<typeof getUserSubscriptionPlan>>
 }
 
-const MobileNav = ({ isAuth }: MobileNavProps) => {
+const MobileNav = ({ isAuth, subscriptionPlan }: MobileNavProps) => {
 
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
@@ -82,8 +84,23 @@ const MobileNav = ({ isAuth }: MobileNavProps) => {
                       href="/dashboard"
                       className="flex items-center w-full font-semibold"
                     >
-                      Dashboard <ArrowRight className="ml-2 h-5 w-5" />
+                      Dashboard <LayoutDashboard className="ml-2 h-5 w-5" />
                     </Link>
+                  </li>
+                  <li className="my-3 h-px w-full bg-neutral-300 dark:bg-neutral-700" />
+                  <li>
+                    {subscriptionPlan?.isSubscribed ? (
+                      <Link href="/dashboard/billing" className="flex items-center w-full font-semibold">
+                        Manage Subscription <CreditCard className="ml-2 h-5 w-5" />
+                      </Link>
+                    ) : (
+                      <Link href="/pricing">
+                        <div className="flex items-center w-full font-semibold">
+                          Upgrade{' '}
+                          <Gem className="text-indigo-600 ml-2 h-5 w-5" />
+                        </div>
+                      </Link>
+                    )}
                   </li>
                   <li className="my-3 h-px w-full bg-neutral-300 dark:bg-neutral-700" />
                   <li>

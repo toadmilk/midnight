@@ -8,11 +8,14 @@ import Image from "next/image";
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 import UserAccountNav from '@/components/UserAccountNav';
 import MobileNav from '@/components/MobileNav';
+import { getUserSubscriptionPlan } from '@/lib/stripe';
 
 const Navbar = async () => {
 
   const { getUser } = getKindeServerSession();
   const user = await getUser();
+
+  const subcriptionPlan = await getUserSubscriptionPlan();
 
   return (
     <nav className='sticky h-14 inset-x-0 top-0 z-30 w-full border-b border-grey-200 dark:border-grey-800 bg-white/75 dark:bg-black/75 backdrop-blur-lg transition-all'>
@@ -23,7 +26,10 @@ const Navbar = async () => {
             {DATA.appName}
           </Link>
 
-          <MobileNav isAuth={!!user}/>
+          <MobileNav
+            isAuth={!!user}
+            subscriptionPlan={subcriptionPlan}
+          />
 
           <div className='hidden items-center space-x-4 sm:flex'>
             {!user ? (
@@ -70,6 +76,7 @@ const Navbar = async () => {
                   }
                   email={user.email ?? ''}
                   imageUrl={user.picture ?? ''}
+                  subscriptionPlan={subcriptionPlan}
                 />
               </>
             )}

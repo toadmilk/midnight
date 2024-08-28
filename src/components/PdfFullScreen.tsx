@@ -35,7 +35,7 @@ const PdfFullScreen = ({ url }: PdfFullScreenProps) => {
         <Button
           aria-label="fullscreen"
           variant="ghost"
-          className="gap-1.5"
+          className="gap-1.5 px-2 sm:px-4"
         >
           <Expand className="w-4 h-4"/>
         </Button>
