@@ -25,7 +25,7 @@ export default function Home() {
         <Link className={buttonVariants({
           size: 'lg',
           className: 'mt-5',
-        })} href="/dashboard" target="_blank">
+        })} href="/sign-in" target="_blank">
           Get started
           <ArrowRight className="w-5 h-5 ml-2" />
         </Link>
