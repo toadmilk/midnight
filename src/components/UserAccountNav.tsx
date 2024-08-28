@@ -11,18 +11,17 @@ import { Avatar, AvatarFallback } from './ui/avatar';
 import Image from 'next/image';
 import { Icons } from './Icons';
 import Link from 'next/link';
-import { Gem } from 'lucide-react';
+import { ArrowRight, CreditCard, Gem } from 'lucide-react';
 import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs/server';
 
 interface UserAccountNavProps {
   email: string | undefined;
   name: string;
   imageUrl: string;
+  subscriptionPlan: Awaited<ReturnType<typeof getUserSubscriptionPlan>>
 }
 
-const UserAccountNav = async ({ email, imageUrl, name }: UserAccountNavProps) => {
-  const subscriptionPlan = await getUserSubscriptionPlan();
-
+const UserAccountNav = async ({ email, imageUrl, name, subscriptionPlan }: UserAccountNavProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
@@ -74,7 +73,7 @@ const UserAccountNav = async ({ email, imageUrl, name }: UserAccountNavProps) =>
         <DropdownMenuItem asChild>
           {subscriptionPlan?.isSubscribed ? (
             <Link href="/dashboard/billing">
-              Manage Subscription
+              Manage Subscription <CreditCard className="h-4 w-4 ml-1.5" />
             </Link>
           ) : (
             <Link href="/pricing">
@@ -87,7 +86,11 @@ const UserAccountNav = async ({ email, imageUrl, name }: UserAccountNavProps) =>
         <DropdownMenuSeparator />
 
         <DropdownMenuItem className="cursor-pointer">
-          <LogoutLink>Log out</LogoutLink>
+          <LogoutLink>
+            <div className="flex items-center">
+              Log out <ArrowRight className="h-4 w-4 ml-1.5" />
+            </div>
+          </LogoutLink>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

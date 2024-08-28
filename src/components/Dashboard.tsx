@@ -34,7 +34,7 @@ export const Dashboard = ({ subscriptionPlan }: DashboardProps) => {
 
   return (
     <main className="mx-auto max-w-7xl md:p-10">
-      <div className="mt-8 flex flex-col items-start justify-between gap-4 border-b border-neutral-200 dark:border-neutral-800 pb-5 sm:flex-row sm:items-center sm:gap-0">
+      <div className="mt-8 flex flex-col items-start justify-between gap-4 border-b border-neutral-200 ml-2 dark:border-neutral-800 pb-5 sm:ml-0 sm:flex-row sm:items-center sm:gap-0">
         <h1 className="mb-3 font-bold text-5xl text-neutral-900 dark:text-neutral-100">My Files</h1>
         <UploadButton isSubscribed={subscriptionPlan.isSubscribed} />
       </div>
@@ -52,7 +52,7 @@ export const Dashboard = ({ subscriptionPlan }: DashboardProps) => {
                   <div className="h-10 w-10 flex-shrink-0 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500" />
                   <div className="flex-1 truncate">
                     <div className="flex items-center space-x-3">
-                      <h3 className="truncate text-lg font-medium text-neutral-300 dark:text-neutral-700">{file.name}</h3>
+                      <h3 className="truncate text-lg font-medium text-neutral-500">{file.name}</h3>
                     </div>
                   </div>
                 </div>
@@ -61,12 +61,12 @@ export const Dashboard = ({ subscriptionPlan }: DashboardProps) => {
               <div className="px-6 mt-4 grid grid-cols-3 place-items-center py-2 gap-6 text-xs text-neutral-500">
                 <div className="flex items-center gap-2">
                   <Plus className="h-4 w-4" />
-                  {format(new Date(file.createdAt), 'MMM yyyy')}
+                  {format(new Date(file.createdAt), 'dd MMM yyyy')}
                 </div>
 
                 <div className="flex items-center gap-2">
                   <MessageSquare className="h-4 w-4" />
-                  mocked
+                  {file.mostRecentMessage ? format(new Date(file.mostRecentMessage.createdAt), 'dd MMM yyyy') : 'No messages'}
                 </div>
 
                 <Button

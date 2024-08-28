@@ -64,8 +64,8 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
 
   return (
     <div className="w-full bg-background rounded-md shadow flex flex-col items-center">
-      <div className="h-14 w-full border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between px-2">
-        <div className="flex items-center gap-1.5">
+      <div className="h-14 w-full border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between sm:px-2">
+        <div className="flex items-center sm:gap-1.5">
           <Button
             disabled={currPage <= 1}
             onClick={() => {
@@ -116,7 +116,7 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
 
         <div className="space-x-2">
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
+            <DropdownMenuTrigger asChild className="px-2 sm:px-4">
               <Button
                 className="gap-1.5"
                 aria-label="zoom"
@@ -152,6 +152,7 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
             aria-label="rotate 90 degrees"
             onClick={() => setRotation((prev) => prev + 90)}
             variant="ghost"
+            className="px-2 sm:px-4"
           >
             <RotateCw className="h-4 w-4"/>
           </Button>

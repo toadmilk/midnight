@@ -10,6 +10,7 @@ import { pinecone } from '@/lib/pinecone';
 import { getUserSubscriptionPlan } from '@/lib/stripe';
 import { subscription } from 'swr/subscription';
 import { PLANS } from '@/config/stripe';
+import { toast } from '@/components/ui/use-toast';
 
 const f = createUploadthing();
 
@@ -27,8 +28,8 @@ const uploaderMiddleware = async () => {
 };
 
 const uploaderOnUploadComplete = async ({
-                                          metadata, file,
-                                        }: {
+  metadata, file,
+}: {
   metadata: Awaited<ReturnType<typeof uploaderMiddleware>>
   file: {
     key: string,
@@ -82,6 +83,12 @@ const uploaderOnUploadComplete = async ({
           id: createdFile.id,
         },
       });
+      toast({
+        title: 'File upload failed',
+        description: `You have exceeded the maximum amount of pages per PDF-file for your plan. Please upgrade to a higher plan.`,
+        variant: 'destructive',
+      });
+      return;
     }
 
     const pineconeIndex = pinecone.Index('midnight');

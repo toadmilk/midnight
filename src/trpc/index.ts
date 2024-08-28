@@ -1,6 +1,6 @@
 import { privateProcedure, publicProcedure, router } from './trpc';
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { TRPCError } from "@trpc/server";
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
+import { TRPCError } from '@trpc/server';
 import { db } from '@/db';
 import { z } from 'zod';
 import { utapi } from '@/app/api/uploadthing/utapi';
@@ -8,7 +8,7 @@ import { INFINITE_QUERY_LIMIT } from '@/config/infinite-query';
 import { absoluteUrl } from '@/lib/utils';
 import { getUserSubscriptionPlan, stripe } from '@/lib/stripe';
 import { PLANS } from '@/config/stripe';
-import { User, File } from '@prisma/client';
+import { File, User } from '@prisma/client';
 
 export const appRouter = router({
   authCallback: publicProcedure.query(async () => {
@@ -96,11 +96,24 @@ export const appRouter = router({
   getUserFiles: privateProcedure.query(async ({ ctx }) => {
     const { userId } = ctx;
 
-    return db.file.findMany({
+    const files = await db.file.findMany({
       where: {
         userId
+      },
+      include: {
+        messages: {
+          orderBy: {
+            createdAt: 'desc'
+          },
+          take: 1
+        }
       }
     });
+
+    return files.map(file => ({
+      ...file,
+      mostRecentMessage: file.messages[0] || null
+    }));
   }),
   getFile: privateProcedure.input(z.object({ key: z.string(), })).mutation(async ({ ctx, input }) => {
     const { userId } = ctx;
