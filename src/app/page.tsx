@@ -16,11 +16,10 @@ export default function Home() {
           </span>
         </NeonGradientCard>
         <h1 className="max-width-4xl text-5xl font-bold md:text-6xl lg:text-7xl">
-          Chat with your <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Documents</span> and create <span
-          className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Shorts</span> in minutes.
+          Transform your <span className='bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent'>Scripts</span> into <span className='bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent'>Shorts</span> in minutes.
         </h1>
         <p className="mt-5 max-w-prose text-grey-300 dark:text-grey-700 sm:text-lg">
-          {DATA.appName} lets you chat with your documents, fine-tune the final script and effortlessly create short-form content. Simply upload your file and start creating right away.
+          Chat with and edit your scripts, fine-tune the result or make manual edits, and effortlessly create short-form content. Just upload your script and start creating instantly.
         </p>
 
         <Link className={buttonVariants({
